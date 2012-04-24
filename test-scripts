@@ -1,0 +1,18 @@
+#!/bin/bash
+
+DIR="$1"
+ 
+if [ $# -ne 1 ]
+then
+	echo "Usage: $0 {dir-name}"
+	exit 1
+fi
+ 
+if [ -d "$DIR" ]
+then
+	echo "$DIR directory  exists!"
+else
+	echo "$DIR directory not found!"
+fi
+
+chflags nohidden ~/Library/

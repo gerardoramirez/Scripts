@@ -1,0 +1,28 @@
+#!/bin/bash
+
+STRING="Install Components for Mac OSx"
+#print variable on a screen
+echo $STRING
+
+SITES_DIR="~/Sites"
+
+if [ -d "$SITES_DIR" ]
+then
+	echo "$SITES_DIR directory  exists!"
+else
+	echo "$SITES_DIR directory not found!"
+	mkdir ~/Sites
+fi
+
+chflags nohidden ~/Library/
+
+#
+#install homebrew -> https://github.com/mxcl/homebrew/wiki/installation
+#
+/usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+
+sudo chown $USER /usr/local
+
+brew update
+
+brew install git bash-completion byobu ssh-copy-id wget
