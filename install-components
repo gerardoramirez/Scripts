@@ -1,6 +1,12 @@
 #!/bin/bash
 
 STRING="Install Components for Mac OSx"
+
+#
+#lets start in the home dir
+#
+cd ~
+
 #print variable on a screen
 echo $STRING
 
@@ -26,3 +32,13 @@ sudo chown $USER /usr/local
 brew update
 
 brew install git bash-completion byobu ssh-copy-id wget
+
+echo "install tomcat 6"
+cd /usr/local/Library/Formula
+git checkout 9e18876 tomcat.rb
+brew install tomcat
+cd -
+echo "installation of tomcat 6 completed"
+
+
+
